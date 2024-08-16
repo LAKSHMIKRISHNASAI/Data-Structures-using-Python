@@ -86,7 +86,7 @@ def find_level(edges,v,x):
 # 1---0,3
 # 2--0,4  based on these we can identify level.
 
-[0,1],[0,2],[1,3],[2,4] #undirected graph
+# [0,1],[0,2],[1,3],[2,4] #undirected graph
 # 0--1,2
 # 1-3
 # 2-4
