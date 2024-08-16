@@ -7,62 +7,7 @@
 # # concept of graph
 # # first either need to create the either graph or tree representation
 # # adjacent list or adjacent graph.
-from collections import deque
-def BFS(arr,start_node,visited):
-    # approach - need to first add the node to visited list and to the queue
-    # pop from the front queue, check if adjacent nodes of that element is in visited node and queue.
-    # if not then add to it.
-    # similarly pop each front node from the queue and visit their neighbours and add them into queue.
-    q=deque()
-    visited[start_node]=True
-    q.append(start_node)
-    while q:
-        node=q.popleft()
-        print(node,end=' ')
-        for neighbors in arr[node]:
-            if not visited[neighbors]:
-                q.append(neighbors)
-                visited[neighbors]=True 
-    # visited=set()
-    # q=deque()
-    # visited.add(start_node)
-    # # print(visited)
-    # q.append(start_node)
-    # while q:
-    #     temp=q.popleft()
-    #     print(arr[temp],end=' ')
-    #     for i in arr[temp]:
-    #         if i not in visited:
-    #             visited.add(i)
-    #             q.append(i)
 
-# arr={0:[1,2,3],
-#      1:[1],
-#      2:[0,3,4],
-#      3:[2,4],
-#      4:[2,3]}
-
-# graph[u][v] table reparesentation 
-def add_edge(arr,u,v):
-    arr[u].append(v)
-
-vertices=6
-graph=[[] for _ in range(6)]
-add_edge(graph,0,1)
-add_edge(graph,0,2)
-add_edge(graph,0,3)
-add_edge(graph,1,1)
-add_edge(graph,2,1)
-add_edge(graph,2,3)
-add_edge(graph,2,4)
-add_edge(graph,3,1)
-add_edge(graph,3,2)
-add_edge(graph,3,4)
-add_edge(graph,4,5)
-# add_edge(graph,5,4) 
-# initially set visited of vertices as false
-visited=[False]*vertices
-BFS(graph,0,visited)
 # # 0--1,2,24
 ###########################################################################################################
 def dfs(arr,start_node,visited):
@@ -205,3 +150,60 @@ def graph(arr,u,v):
 # v={0:1, 0:2,0:3}
 # v=[[0,1],[0,2],[0,3]]
 # dfs(arr,1)
+############################################################################################################
+from collections import deque
+def BFS(arr,start_node,visited):
+    # approach - need to first add the node to visited list and to the queue
+    # pop from the front queue, check if adjacent nodes of that element is in visited node and queue.
+    # if not then add to it.
+    # similarly pop each front node from the queue and visit their neighbours and add them into queue.
+    q=deque()
+    visited[start_node]=True
+    q.append(start_node)
+    while q:
+        node=q.popleft()
+        print(node,end=' ')
+        for neighbors in arr[node]:
+            if not visited[neighbors]:
+                q.append(neighbors)
+                visited[neighbors]=True 
+    # visited=set()
+    # q=deque()
+    # visited.add(start_node)
+    # # print(visited)
+    # q.append(start_node)
+    # while q:
+    #     temp=q.popleft()
+    #     print(arr[temp],end=' ')
+    #     for i in arr[temp]:
+    #         if i not in visited:
+    #             visited.add(i)
+    #             q.append(i)
+
+# arr={0:[1,2,3],
+#      1:[1],
+#      2:[0,3,4],
+#      3:[2,4],
+#      4:[2,3]}
+
+# graph[u][v] table reparesentation 
+def add_edge(arr,u,v):
+    arr[u].append(v)
+
+vertices=6
+graph=[[] for _ in range(6)]
+add_edge(graph,0,1)
+add_edge(graph,0,2)
+add_edge(graph,0,3)
+add_edge(graph,1,1)
+add_edge(graph,2,1)
+add_edge(graph,2,3)
+add_edge(graph,2,4)
+add_edge(graph,3,1)
+add_edge(graph,3,2)
+add_edge(graph,3,4)
+add_edge(graph,4,5)
+# add_edge(graph,5,4) 
+# initially set visited of vertices as false
+visited=[False]*vertices
+BFS(graph,0,visited)
