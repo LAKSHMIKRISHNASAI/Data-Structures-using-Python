@@ -13,3 +13,4 @@ def kthlargestsum(arr,k):
 k=3
 arr=[20, -5, -1]
 # arr=[10, -10, 20, -4
+kthlargestsum(arr,k)
