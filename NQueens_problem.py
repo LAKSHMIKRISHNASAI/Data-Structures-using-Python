@@ -1,7 +1,8 @@
 # N-queens problem.
-# approach is using backtracking can places the queens without any interaction with next or previous queens.
+# approach is using backtracking, how many ways we can places the queens without any interaction with next or previous queens.
 # queens can move left to right columnwise. Need a isSafe function to check if any other queen not placed before and after the position of current queen in same row.
-# if isSafe function satisfies then can place the queens in safe places.
+# and also need to check upper diagonal and lower diagonal of current queen. 
+# if each time isSafe function satisfies then can place the queens in safe places.
 global n
 n=8
 
@@ -24,15 +25,15 @@ def NQueens(board,col):
         return True 
     for i in range(n):
         if isSafe(board,i,col):
+            # consider current cell and check is it worth of placing queen in current cell
             board[i][col]=1 
             # now before moving to next cell we can use recursion of current function.
             # at each move need to check whether the next step may be end of row.
             nextstep=NQueens(board,col+1)
             if nextstep==True:
                 return True 
+             # check for next cell if objection found or not safe to move then keep current cell queen 0 as previous.
             board[i][col]=0
-        # consider current cell and check is it worth placing current cell queen.
-        # and check for next cell if no objection then keep current cell queen otherwise mark 0 as previous.
     return False
 def printsolution(board):
     for i in range(n):
