@@ -16,13 +16,10 @@ def isSafe(grid,row,col,num):
         if grid[i][col]==num:
             return False 
     # 3*3-- 1 to 9
-    # 4-4%3,4-1--3, 4,5,6-5-5%3-5-2=3,6-6%3=6-0=6, 7-7%3=7-1=6,8,9 
-    # 3,6,9
+    # subrow=row-row%3--->Eg:(3-3%3)=3, (4-4%3)=3, (5-5%3)=3,(6-6%3)=6, (7-7%3)=6
     # we need to check whether it is safe to keep in 3*3 subgrid.
     # this can be get finding starting position of each sub grid.
     # we need the sub grid of 3*3 so taking remainder of each row and col, then subtract from them.
-    
-    # 6,6
     subrow=row-row%3
     subcol=col-col%3 
     for i in range(3):
@@ -31,10 +28,6 @@ def isSafe(grid,row,col,num):
                 return False 
     return True 
     #we need to print 1 to 9 numbers at each subgrid,    
-# row=col=9
-
-# sub_row=row-row%3
-# sub_col=col-col%3
 
 def solve_sudoko(grid,row,col):
     if row==n-1 and col==n:
