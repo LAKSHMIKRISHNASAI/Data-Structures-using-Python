@@ -16,7 +16,7 @@ class Solution:
 
    
 
-                  #     [1,2,2]
+                  #          [1,2,2]
         #             [1]               []
         #    [1,2]          [1]       [2]      []
         # [1,2,2] [1,2] [1,2] [1] [2,2] [2]  [2]  []---[2] obtaining twice need to remove it.
